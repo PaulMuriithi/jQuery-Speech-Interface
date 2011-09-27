@@ -509,9 +509,10 @@
                       * @return {Boolean}
                       */
                     this.isEqual = function(wordA, wordB) {
-                        if(wordA !== undefined && wordB !== undefined) {
+                        if(typeof(wordA) == 'string' && typeof(wordB) == 'string')
                             return this.levenshtein(this.metaphone(wordA), this.metaphone(wordB)) < 2;
-                        }
+                        else if(typeof(wordA) == 'number' && typeof(wordB) == 'number')
+                            return wordA == wordB;
 
                         return false;
                     };
@@ -560,11 +561,26 @@
                      * @return {jQuery}
                      */
                     this.findInterpretedLink = function(htmlNode) {
+
+                        var self = this;
+                        var interpretNumber = function(posNumber) {
+                            var n = parseInt(posNumber);
+                            if(!isNaN(n))
+                                return n;
+                            else {
+                                if(self.isEqual(posNumber, 'to') || self.isEqual(posNumber, 'who'))
+                                    return 2;
+                                else if(self.isEqual(posNumber, 'ate') || self.isEqual(posNumber, 'hate'))
+                                    return 8;
+                            }
+                            
+                            return NaN;
+                        };
+
                         for(var i=0; i < this.words.length; i++) {
-                        //  alert(this.words[i] +' '+ parseInt(this.words[i]));
-                        var linkNumber = parseInt(this.words[i]);
-                            if(!isNaN(linkNumber))
-                                return htmlNode.find('span[data-link='+linkNumber+']').parent();
+                            var number = interpretNumber(this.words[i]);
+                            if(!isNaN(number))
+                                return htmlNode.find('span[data-link='+number+']').parent();
                         }
 
                         return false;
@@ -659,8 +675,15 @@
                                 if(settings.debugMode)
                                     messenger.showMessage('Executing link command');
 
-                                ui.el.scrollTop( linkElement.scrollTop() - 50 );
-                                //linkElement.click();
+                                ui.el.scrollTop( linkElement.offset().top - 50 );
+                                linkElement
+                                    .css({
+                                        background : 'yellow',
+                                        opacity : 0.85
+                                    })
+                                    .addClass('found-by-interpreter');
+
+                                document.location = linkElement.get(0).href;
                             }
                             else if(settings.debugMode)
                                 messenger.showMessage('Could not found requested link', true, {color : 'red'});

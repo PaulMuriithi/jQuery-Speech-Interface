@@ -1,7 +1,8 @@
 <?php
 /*
 Plugin Name: jQuery Speech Interface
-Description: With this plugin you make it possible for your visitors to control and navigate your website by talking to the browser. This plugin is mostly for It only works in browsers that supports -webkit-speech
+Plugin URI: https://github.com/victorjonsson/jQuery-Speech-Interface/
+Description: With this plugin you make it possible for your visitors to control and navigate your website by talking to the browser. This plugin is mostlIt only works in browsers that supports -webkit-speech
 Version: 0.1
 Author: Victor Jonsson
 Author URI: http://victorjonsson.se
