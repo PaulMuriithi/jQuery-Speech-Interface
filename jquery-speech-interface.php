@@ -149,7 +149,7 @@ else {
                             posY : 40,
                         <? endif; ?>
                         debugMode : <?=$settings->getDebugMode()?>,
-                        scrollHeight : jQuery(window).height() * 0.4,
+                        scrollLength : jQuery(window).height() * 0.4,
                         notSupportedMessage: <?php echo $settings->getNotSupportedMessage() == '' ? 'false':'\''.$settings->getNotSupportedMessage().'\'' ?>
                     });
                 });
