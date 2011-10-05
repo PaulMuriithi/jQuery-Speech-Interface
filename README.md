@@ -20,7 +20,7 @@ Say one of the following commands and the magic will happen.
 Dowload the [latest version](https://github.com/victorjonsson/jQuery-Speech-Interface/archives/master) to your computer. Unzip the folder in the plugin directory of your wordpress installation. Then you simply install the plugin as an ordinary plugin and you'r ready to go. 
 
 ## Custom installation 
-This example requires that you have some prior knowledge about html and javascript coding. First of all upload the file jquery.speechinterface.js to your web server. Add the following to the head section of your html document (you'll have to add the path to the script file your self).
+This example requires that you have some prior knowledge about html and javascript coding. First of all upload the file jquery.speechinterface.js to your web server. Add the following to the head section of your html document (you'll have to add the path to the script file yourself).
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
