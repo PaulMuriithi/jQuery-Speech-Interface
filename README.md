@@ -8,19 +8,19 @@ This project contains a Wordpress plugin that makes it possible for your visitor
 ## How does it work?
 After that you've installed the plugin a dialog box will appear in the left corner of your website. In the dialog box there will be a small microphone-icon. Click on the icon and a recording will start (remember that this is only supported by Google Chrome at the moment).
 
-Say one of the following commands and the magic will happen.
+Say one of the following commands and the magic will happen (you have to say it load and clear, otherwise googles servers gets a bit muddle-headed).
 
 * "scroll down"
 * "scroll up" 
 * "scroll" - Will trigger the last scroll command you said
-* "link X" - There will be a number in a gray circle beside every link on your page. To click on a link simply say "link" followed by the number.
+* "link X" - There will be a number in a gray circle beside every link on your page. You navigate to a link simply by saying "link" followed by the number.
 
 
 ## Installation on Wordpress
-Dowload the [latest version](https://github.com/victorjonsson/jQuery-Speech-Interface/archives/master) to your computer. Unzip the folder in the plugin directory of your wordpress installation. Then you simply install the plugin as an ordinary plugin and you'r ready to go. 
+All you have to do is to install plugin [jQuery Speech Interface](http://wordpress.org/extend/plugins/jquery-speech-interface/) via the Wordpress repository and you're set to go!
 
 ## Custom installation 
-This example requires that you have some prior knowledge about html and javascript coding. First of all upload the file jquery.speechinterface.js to your web server. Add the following to the head section of your html document (you'll have to add the path to the script file yourself).
+This example requires that you have some prior knowledge about html and javascript coding. First of all upload the file /static/jquery.speechinterface.js to your web server. Add the following to the head section of your html document (you'll have to add the path to the script file your self).
 
 ```html
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>

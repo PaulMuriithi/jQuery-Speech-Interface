@@ -1,29 +1,29 @@
 <?php
 
-$settings = jQuerySpeechSettings::instance();
+$settings = JquerySpeechPluginFactory::load();
 
-if(count($_POST) > 0) {
+if( count($_POST) > 0 ) {
     $settings->setNotSupportedMessage($_POST['support_message']);
     $settings->setDebugMode($_POST['debug_mode']);
     $settings->setIsActive(isset($_POST['is_active']));
-    $settings->save();
-    $message = 'Settings updated';
+    JquerySpeechPluginFactory::save( $settings );
+    $message = __('Settings updated');
 }
 
 ?><div id="jqspeech-options" class="wrap">
 
 	<div id="icon-options-general" class="icon32"><br /></div>
-	<h2>jQuery Speech Interface</h2>
+	<h2><?php _e('jQuery Speech Interface'); ?></h2>
 	
-	<?php if (isset($message)): ?>
+	<?php if( isset($message) ): ?>
 		<div id="setting-error-settings_updated" class="updated settings-error"> 
-			<p><strong><?php _e($message); ?></strong></p>
+			<p><strong><?php echo $message; ?></strong></p>
 		</div>
 	<?php endif; ?>
 	
 	<h3><?php _e('Settings') ?></h3>
 
-	<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+	<form action="" method="post">
 
 		<table class="form-table">
 			<tbody>
